@@ -6,6 +6,7 @@ on:
   push:
     branches: [main]
     paths:
+      - "**/*.html"
       - "index.html"
       - "assets/**"
       - ".github/workflows/deploy.yml"
