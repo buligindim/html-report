@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="slides-format" content="viewport">
+<title>Грузия: Дима, Нядя, Тимур — 10 дней</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<style type="text/tailwindcss">
+@theme {
+  --color-bg:#071a2e;--color-bg-deep:#03101e;--color-surface:#0e2a46;
+  --color-text:#f0f8ff;--color-text-secondary:#c8dff2;--color-text-muted:#7ea8cc;
+  --color-accent-1:#3fc8e4;--color-accent-2:#ffd15c;--color-accent-3:#34d399;
+  --color-glass-bg:rgba(255,255,255,0.07);--color-glass-border:rgba(255,255,255,0.13);
+  --color-vignette:rgba(0,0,0,0.35);
+  --font-display:'Playfair Display',serif;--font-body:'Inter',sans-serif;
+}
+</style>
+<style>
+:root{--color-bg:#071a2e;--color-text:#f0f8ff;--glow-color-rgb:63,200,228;}
+*,*::before,*::after{box-sizing:border-box}
+html,body{background:var(--color-bg);margin:0}
+body{font-family:'Inter',sans-serif;color:var(--color-text);overflow:hidden;height:100vh;width:100vw}
+.deck{width:100vw;height:100vh;position:relative}
+.slide{position:absolute;top:0;left:0;width:100%;height:100%;background:var(--color-bg);display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;transform:scale(.96);transition:opacity .65s ease,transform .65s ease;pointer-events:none;overflow:hidden}
+.slide.active{opacity:1;transform:scale(1);pointer-events:all}
+.slide>.content{position:relative;z-index:2;width:100%;max-width:1200px;padding:clamp(.8rem,2.5vw,2.2rem)}
+.nav-controls{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:12px;z-index:100;background:rgba(255,255,255,.08);backdrop-filter:blur(10px);padding:9px 20px;border-radius:40px;border:1px solid rgba(255,255,255,.14)}
+.nav-btn{width:38px;height:38px;border:none;background:rgba(255,255,255,.08);color:#fff;border-radius:50%;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.slide-dots{display:flex;gap:6px;flex-wrap:wrap;max-width:200px;justify-content:center}
+.dot{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.22);cursor:pointer;transition:background .3s,transform .3s}
+.dot.active{background:#3fc8e4;transform:scale(1.3)}
+.slide-counter{font-size:.75rem;color:#7ea8cc;min-width:44px;text-align:center}
+.reveal{opacity:0;transform:translateY(18px)}
+.gradient-mesh{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.blob{position:absolute;border-radius:50%;filter:blur(80px);animation:float-slow 12s ease-in-out infinite}
+.blob:nth-child(2){animation:float-drift 16s ease-in-out infinite}
+.blob:nth-child(3){animation:float-slow 20s ease-in-out infinite reverse}
+.slide::before{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");background-repeat:repeat;background-size:256px 256px;opacity:.03;mix-blend-mode:overlay}
+.slide::after{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse at center,transparent 50%,rgba(0,0,0,.35) 100%)}
+@keyframes float-slow{0%{transform:translate(0,0) scale(1)}25%{transform:translate(55px,-45px) scale(1.1)}50%{transform:translate(-35px,35px) scale(.92)}75%{transform:translate(45px,18px) scale(1.06)}100%{transform:translate(0,0) scale(1)}}
+@keyframes float-drift{0%{transform:translate(0,0) scale(1)}33%{transform:translate(-45px,-55px) scale(1.12)}66%{transform:translate(38px,28px) scale(.89)}100%{transform:translate(0,0) scale(1)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+.glass{background:rgba(255,255,255,.07);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.13);border-radius:18px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.img-card{overflow:hidden;border-radius:16px;border:1px solid rgba(255,255,255,.13)}
+.img-card img{width:100%;height:155px;object-fit:cover;display:block}
+.img-card .cap{padding:10px 13px;font-size:.83rem;color:#c8dff2}
+.route-wrap{display:flex;flex-direction:column;gap:0}
+.route-item{display:flex;gap:14px;align-items:flex-start;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.07)}
+.route-item:last-child{border-bottom:none}
+.rdot{width:18px;height:18px;min-width:18px;border-radius:50%;background:linear-gradient(135deg,#3fc8e4,#ffd15c);box-shadow:0 0 14px rgba(63,200,228,.4);margin-top:3px}
+.tag{display:inline-block;padding:4px 10px;border-radius:999px;background:rgba(63,200,228,.15);border:1px solid rgba(63,200,228,.3);font-size:.75rem;color:#3fc8e4}
+table{width:100%;border-collapse:collapse;font-size:.88rem}
+th,td{padding:9px 11px;border-bottom:1px solid rgba(255,255,255,.1);vertical-align:top;text-align:left}
+th{color:#fff;font-weight:600;background:rgba(63,200,228,.08)}
+td{color:#c8dff2}
+.mini{font-size:.78rem;color:#7ea8cc}
+.big{font-size:1.9rem;font-weight:800;line-height:1;color:#3fc8e4}
+.highlight{color:#ffd15c;font-weight:700}
+.sep{color:#7ea8cc;margin:0 6px}
+.verdict{border-left:3px solid #3fc8e4;padding-left:14px;margin:8px 0}
+@media(max-width:860px){.g2,.g3,.g4{grid-template-columns:1fr}.img-card img{height:130px}table{font-size:.79rem}.big{font-size:1.5rem}}
+</style>
+</head>
+<body>
+<div class="deck">
+
+<!-- SLIDE 1: TITLE -->
+<div class="slide active" data-slide="1">
+  <div class="gradient-mesh">
+    <div class="blob" style="width:500px;height:500px;top:-110px;right:-110px;background:#3fc8e4;opacity:.16"></div>
+    <div class="blob" style="width:340px;height:340px;bottom:-90px;left:-70px;background:#ffd15c;opacity:.13"></div>
+    <div class="blob" style="width:220px;height:220px;top:45%;left:14%;background:#34d399;opacity:.09"></div>
+  </div>
+  <canvas class="particle-canvas" style="position:absolute;inset:0;z-index:1"></canvas>
+  <div class="content text-center">
+    <div style="font-size:90px;margin-bottom:14px;animation:float 3s ease-in-out infinite">🇬🇪</div>
+    <h1 class="font-display reveal" style="font-size:clamp(2rem,5vw,4.5rem);font-weight:900;background:linear-gradient(135deg,#3fc8e4,#ffd15c,#3fc8e4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.15;margin-bottom:16px">Грузия на море:<br>глубокое исследование</h1>
+    <p class="reveal" style="font-size:clamp(.9rem,1.5vw,1.15rem);color:#7ea8cc;letter-spacing:4px;text-transform:uppercase">Дима, Нядя и Тимур · 10 дней · 2 варианта · точные цены</p>
+    <div class="reveal" style="margin-top:20px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <span class="tag">✈ Вариант 1: Самолёт + аренда</span>
+      <span class="tag">🚗 Вариант 2: Honda Pilot</span>
+      <span class="tag">📊 Полный бюджет</span>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 2: EXCHANGE RATES & CURRENCY -->
+<div class="slide" data-slide="2">
+  <div class="gradient-mesh">
+    <div class="blob" style="width:320px;height:320px;top:-60px;right:-60px;background:#3fc8e4;opacity:.07"></div>
+    <div class="blob" style="width:240px;height:240px;bottom:-50px;left:-40px;background:#ffd15c;opacity:.07"></div>
+  </div>
+  <div class="content">
+    <h2 class="font-display text-4xl mb-5 reveal">Курсы валют: реальные данные</h2>
+    <div class="g2">
+      <div class="glass p-6 reveal">
+        <h3 style="font-size:1.3rem;margin-bottom:14px;color:#3fc8e4">Актуальные курсы (июль 2026)</h3>
+        <table>
+          <tr><th>Пара</th><th>Курс</th><th>Смысл</th></tr>
+          <tr><td>1 RUB → GEL</td><td class="highlight">≈ 0.0337 GEL</td><td>Т.е. 1 000 ₽ ≈ 33.7 GEL</td></tr>
+          <tr><td>1 USD → GEL</td><td class="highlight">≈ 2.70 GEL</td><td>Стабильный курс 2025–2026</td></tr>
+          <tr><td>1 EUR → GEL</td><td class="highlight">≈ 2.95 GEL</td><td>Евро немного дороже доллара</td></tr>
+          <tr><td>1 USD → RUB</td><td class="highlight">≈ 80 RUB</td><td>Рабочий ориентир для расчётов</td></tr>
+          <tr><td>100 GEL → RUB</td><td class="highlight">≈ 2 967 ₽</td><td>Удобно: 100 GEL ≈ 3 000 ₽</td></tr>
+        </table>
+        <p class="mini mt-3">Курс RUB/GEL по Wise: диапазон последней недели 0.0335–0.0346. Источник: alanchand.com / wise.com, 16 июля 2026.</p>
+      </div>
+      <div class="glass p-6 reveal">
+        <h3 style="font-size:1.3rem;margin-bottom:14px;color:#ffd15c">Быстрый конвертер</h3>
+        <table>
+          <tr><th>В GEL</th><th>В рублях</th></tr>
+          <tr><td>10 GEL (такси/метро)</td><td>≈ 297 ₽</td></tr>
+          <tr><td>30 GEL (обед на 1)</td><td>≈ 890 ₽</td></tr>
+          <tr><td>80 GEL (ужин на 2)</td><td>≈ 2 373 ₽</td></tr>
+          <tr><td>150 GEL (апарт/сутки)</td><td>≈ 4 450 ₽</td></tr>
+          <tr><td>250 GEL (отель 4★/сутки)</td><td>≈ 7 420 ₽</td></tr>
+          <tr><td>500 GEL (аренда авто/сутки)</td><td>≈ 14 800 ₽</td></tr>
+        </table>
+        <p class="mini mt-3">Совет блогеров: менять деньги в обменниках Liberty Square или Rustaveli в Тбилиси — там курс лучше аэропорта на 3–5%.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 3: FLIGHTS -->
+<div class="slide" data-slide="3">
+  <div class="gradient-mesh">
+    <div class="blob" style="width:340px;height:340px;top:-70px;left:-60px;background:#3fc8e4;opacity:.08"></div>
+    <div class="blob" style="width:250px;height:250px;bottom:-50px;right:-40px;background:#34d399;opacity:.08"></div>
+  </div>
+  <div class="content">
+    <h2 class="font-display text-4xl mb-4 reveal">✈ Перелёт Москва → Батуми</h2>
+    <div class="g2">
+      <div class="reveal">
+        <div class="img-card mb-4"><img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/c47c4b8721b6c95f0da96824745a5183ed8f5b4d.jpg" alt="Red Wings самолёт"><div class="cap">Red Wings — один из двух прямых перевозчиков Москва–Батуми. Прямой рейс ~3 ч 30 мин.</div></div>
+        <div class="glass p-5">
+          <table>
+            <tr><th>Аэропорт вылета</th><th>Авиакомпания</th><th>Тип</th></tr>
+            <tr><td><b>Внуково (VKO)</b></td><td>Azimuth Airlines</td><td>Прямой</td></tr>
+            <tr><td><b>Внуково (VKO)</b></td><td>Red Wings</td><td>Прямой</td></tr>
+            <tr><td>Шереметьево (SVO)</td><td>Georgian Airways</td><td>Прямой</td></tr>
+            <tr><td>Разные</td><td>Turkish / Belavia</td><td>С пересадкой</td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="glass p-6 reveal">
+        <h3 style="font-size:1.2rem;margin-bottom:12px;color:#3fc8e4">Цены: следующая неделя (22–27 июля)</h3>
+        <table>
+          <tr><th>Класс билета</th><th>1 чел. (1 сторона)</th><th>3 чел. туда-обратно</th></tr>
+          <tr><td>Самый дешёвый (Azimuth)</td><td>≈ €146 / ~11 700 ₽</td><td>≈ 70 000 ₽</td></tr>
+          <tr><td>Red Wings (прямой)</td><td>≈ €254–265 / ~20 300 ₽</td><td>≈ 121 800 ₽</td></tr>
+          <tr><td>С пересадкой</td><td>от €120 / ~9 600 ₽</td><td>от 57 600 ₽</td></tr>
+        </table>
+        <p class="mini mt-3">Данные obilet.com / trip.com по датам 22–27 июля 2026. Прямой рейс ~3 ч 40 мин. Рекомендация: бронировать в будни (вт/ср) — обычно дешевле.</p>
+        <div class="verdict mt-3">
+          <p><b>Рекомендация блогеров:</b> брать Azimuth если цена до 15 000 ₽ в одну сторону, Red Wings — если важен прямой и гарантированный рейс без пересадок.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 4: BATUMI MAP & ORIENTATION -->
+<div class="slide" data-slide="4">
+  <div class="gradient-mesh">
+    <div class="blob" style="width:320px;height:320px;top:-70px;right:-60px;background:#ffd15c;opacity:.07"></div>
+    <div class="blob" style="width:240px;height:240px;bottom:-50px;left:-40px;background:#3fc8e4;opacity:.07"></div>
+  </div>
+  <div class="content">
+    <h2 class="font-display text-4xl mb-4 reveal">Батуми: расположение в пространстве</h2>
+    <div class="g2">
+      <div class="reveal">
+        <div class="img-card mb-3"><img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/e7602ec3ba7e894fca5d2112286df120f1c58e54.jpg" alt="Туристическая карта Батуми"><div class="cap">Официальная туристическая карта Батуми: бульвар и пляж — слева, старый город — в центре.</div></div>
+        <div class="img-card"><img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/11172c93c56f0a8e4394ab514393b92e1c9ff530.jpg" alt="Карта районов Батуми"><div class="cap">Схема районов: центральный пляж, Старый город и направление на ботсад хорошо видны.</div></div>
+      </div>
+      <div class="glass p-6 reveal">
+        <h3 style="font-size:1.2rem;color:#3fc8e4;margin-bottom:12px">Ключевая логика пространства</h3>
+        <div class="route-wrap">
+          <div class="route-item"><div class="rdot"></div><div><b>Центральный пляж и бульвар</b> — сердце Батуми, пешая доступность от большинства 3–4★ отелей.</div></div>
+          <div class="route-item"><div class="rdot"></div><div><b>Ботанический сад</b> — 9 км к северу от центра; удобен как полудневной выезд на машине или маршрутке.</div></div>
+          <div class="route-item"><div class="rdot"></div><div><b>Гонио-Апсарос</b> — 12 км к югу; легко совмещать с пляжами Квариати и Сарпи в одном дне.</div></div>
+          <div class="route-item"><div class="rdot"></div><div><b>Горная Аджария</b> — от 40 км; Хуло, водопады, перевалы. Нужна машина. Один отдельный день.</div></div>
+          <div class="route-item"><div class="rdot"></div><div><b>Тбилиси</b> — 340 км или 40-мин. перелёт. Ночной поезд 5.5 ч. Ставить в середину, не финал.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 5: SEA DAYS -->
+<div class="slide" data-slide="5">
+  <div class="gradient-mesh">
+    <div class="blob" style="width:360px;height:360px;top:-80px;right:-60px;background:#3fc8e4;opacity:.09"></div>
+    <div class="blob" style="width:240px;height:240px;bottom:-50px;left:-40px;background:#34d399;opacity:.08"></div>
+  </div>
+  <canvas class="particle-canvas-ambient" style="position:absolute;inset:0;z-index:1"></canvas>
+  <div class="content">
+    <h2 class="font-display text-4xl mb-4 reveal">🏖 Батумское море: что это такое</h2>
+    <div class="g2">
+      <div class="reveal">
+        <div class="img-card mb-3"><img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/006bae57e15a4cc41a4b1196a26d06899d20f07d.jpg" alt="Пляж Батуми"><div class="cap">Пляж Батуми: галечный берег, Алфавитная башня и горы — всё в одном кадре.</div></div>
+        <div class="img-card"><img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/565e06fb5557639983a934d368237c3865462b85.jpg" alt="Пляж с зонтиками Батуми"><div class="cap">Пляж с лежаками и зонтиками. Аренда лежака: около 10–15 GEL/день.</div></div>
+      </div>
+      <div class="glass p-6 reveal">
+        <h3 style="font-size:1.2rem;color:#3fc8e4;margin-bottom:12px">Что важно знать о море</h3>
+        <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:9px">
+          <li>🪨 <b>Галечный пляж</b>, не песчаный — нужны пляжные тапочки, особенно для Тимура.</li>
+          <li>☀️ <b>Июль–август</b> — пик сезона, море +24–26°C, воздух +28–35°C.</li>
+          <li>🌊 Центральный бульвар протяжённостью 7 км подходит для семьи с подростком: велодорожки, фонтаны, игровые зоны.</li>
+          <li>🎡 На бульваре: дельфинарий, канатная дорога Argo, аттракционы, аквариум.</li>
+          <li>📍 Лучшие пляжи для семьи: Old Boulevard Beach, Gonio Beach (тише), Kvariati (мелкая галька).</li>
+          <li>💡 Блогерский совет: <i>«Первые 2 дня — только море и восстановление. Выезды — с 3-го дня.»</i></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 6: BOULEVARD & OLD TOWN -->
+<div class="slide" data-slide="6">
+  <div class="gradient-mesh">
+    <div class="blob" style="width:340px;height:340px;top:-70px;left:-60px;background:#ffd15c;opacity:.08"></div>
+    <div class="blob" style="width:260px;height:260px;bottom:-50px;right:-40px;background:#3fc8e4;opacity:.07"></div>
+  </div>
+  <div class="content">
+    <h2 class="font-display text-4xl mb-4 reveal">Бульвар и Старый город</h2>
+    <div class="g3">
+      <div class="img-card reveal"><img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/7e07055d3388369b183287a0e0dee3e5a1b04355.jpg" alt="Ночной бульвар Батуми"><div class="cap"><b>Ночной бульвар</b>. Вечерняя прогулка — главный ритуал Батуми для семьи.</div></div>
+      <div class="img-card reveal"><img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/897ad9ec0037abacb2efb5a39c2f529f7c73239c.jpg" alt="Набережная ночью"><div class="cap"><b>Набережная с высоты</b>. Алфавитная башня, бульвар и море — ориентиры в пространстве.</div></div>
+      <div class="img-card reveal"><img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/606594a4550cd76f82368abda0102da37753b98d.jpg" alt="Старый город Батуми"><div class="cap"><b>Старый город</b>. Уютные мощёные улочки в 10 мин. ходьбы от пляжа.</div></div>
+    </div>
+    <div class="glass p-5 mt-4 reveal">
+      <div class="g3" style="gap:12px;font-size:.88rem">
+        <div><b style="color:#3fc8e4">Ali & Nino</b><br>Статуя влюблённых на бульваре — символ Батуми. Бесплатно. Лучший вид в закат.</div>
+        <div><b style="color:#ffd15c">Алфавитная башня</b><br>Смотровая площадка. Вход: ~5 GEL (~150 ₽). Отличный вид на море и горы.</div>
+        <div><b style="color:#34d399">Канатная дорога Argo</b><br>Подъём на 260 м. Цена: ~15–20 GEL (~450–600 ₽). Дети до 6 лет — бесплатно.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 7: BOTANICAL GARDEN & GONIO -->
+<div class="slide" data-slide="7">
+  <div class="gradient-mesh">
+    <div class="blob" style="width:340px;height:340px;top:-70px;right:-60px;background:#34d399;opacity:.08"></div>
+    <div class="blob" style="width:250px;height:250px;bottom:-50px;left:-40px;background:#3fc8e4;opacity:.07"></div>
+  </div>
+  <div class="content">
+    <h2 class="font-display text-4xl mb-4 reveal">Выезды: Ботсад и Гонио</h2>
+    <div class="g2">
+      <div class="reveal">
+        <div class="img-card mb-3"><img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/159919d1d3e1b69fb91a49c7a0b80bdbf8d49341.jpg" alt="Ботанический сад вид с обрыва"><div class="cap"><b>Ботанический сад: вид на море.</b> 108 га зелени, 9 км к северу. Вход 15 GEL (~450 ₽). Полдня.</div></div>
+        <div class="img-card"><img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4f1b306861f0a4537b7d60530fd998d314aea786.jpg" alt="Ботсад тропинки"><div class="cap">Тропинки с видом на море. Семейный маршрут 1.5 км — подходит для Тимура и комфортен для всех.</div></div>
+      </div>
+      <div class="reveal">
+        <div class="img-card mb-3"><img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/02da9914aeb2b604dde10325a5cbbf181355ab09.jpg" alt="Ворота Гонио"><div class="cap"><b>Гонио-Апсарос, II век н.э.</b> 12 км к югу от Батуми. Вход 3 GEL (~90 ₽).</div></div>
+        <div class="img-card"><img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/507599c95e82de79d5e455d7b3920fb083bad3d6.jpg" alt="Карта Гонио"><div class="cap">Карта расположения Гонио. Удобно совмещать с пляжами Квариати — всё по одной дороге на юг.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 8: ADJARA MOUNTAINS -->
+<div class="slide" data-slide="8">
+  <div class="gradient-mesh">
+    <div class="blob" style="width:340px;height:340px;top:-70px;left:-60px;background:#34d399;opacity:.08"></div>
+    <div class="blob" style="width:260px;height:260px;bottom:-50px;right:-40px;background:#ffd15c;opacity:.07"></div>
+  </div>
+  <div class="content">
+    <h2 class="font-display text-4xl mb-4 reveal">🏔 Горная Аджария: 1 день</h2>
+    <div class="g2">
+      <div class="reveal">
+        <div class="img-card mb-3"><img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/29438c1a06dbabc59517bef3aca48c7344bfc4ae.jpg" alt="Горы Аджарии"><div class="cap">Горные деревни Аджарии: зелёные хребты, красные крыши и пасущийся скот.</div></div>
+        <div class="img-card"><img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/2854c3bce45980283cce6d516ab14f9892142ec1.jpg" alt="Аджария смотровая канатка"><div class="cap">Канатная дорога в горах Аджарии. Один из самых ярких дней маршрута.</div></div>
+      </div>
+      <div class="glass p-6 reveal">
+        <h3 style="font-size:1.2rem;color:#34d399;margin-bottom:12px">Маршрут дня в горах</h3>
+        <div class="route-wrap">
+          <div class="route-item"><div class="rdot"></div><div><b>Маршрутка из Батуми</b> до Кеда: 2 GEL (~60 ₽). Или аренда авто (~$50–65/день в июле).</div></div>
+          <div class="route-item"><div class="rdot"></div><div><b>Водопад Махунцети</b> (~35 км): бесплатно, рядом средневековый мост Тамары.</div></div>
+          <div class="route-item"><div class="rdot"></div><div><b>Хуло</b>: горное село, канатная дорога, традиционные дома. Тимуру точно понравится.</div></div>
+          <div class="route-item"><div class="rdot"></div><div>Для перевала Годердзи нужен <b>внедорожник</b> — для аренды подойдёт Hyundai Tucson от $50–65/день.</div></div>
+        </div>
+        <p class="mini mt-2">Аджарские горы — самый влажный регион Европы. Блогер Against the Compass: 3 дня в горах дают совершенно другой опыт, не только море.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 9: TBILISI -->
+<div class="slide" data-slide="9">
+  <div class="gradient-mesh">
+    <div class="blob" style="width:340px;height:340px;top:-70px;right:-60px;background:#ffd15c;opacity:.08"></div>
+    <div class="blob" style="width:260px;height:260px;bottom:-50px;left:-40px;background:#3fc8e4;opacity:.07"></div>
+  </div>
+  <div class="content">
+    <h2 class="font-display text-4xl mb-4 reveal">🏛 Тбилиси: 1.5–2 дня опционально</h2>
+    <div class="g2">
+      <div class="reveal">
+        <div class="img-card mb-3"><img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/ef269dd6c244184ee4932b6a5aeb17e8c41dced5.jpg" alt="Нарикала ночью"><div class="cap"><b>Нарикала ночью</b>. Символ Тбилиси. Отличный вечерний вид с холма.</div></div>
+        <div class="img-card"><img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/eab775ac2c7442fc8eba58648848f037f6882619.jpg" alt="Старый Тбилиси"><div class="cap">Старый город с серными банями Абанотубани — один из самых узнаваемых видов Грузии.</div></div>
+      </div>
+      <div class="glass p-6 reveal">
+        <h3 style="font-size:1.2rem;color:#ffd15c;margin-bottom:12px">Как добраться и сколько стоит</h3>
+        <table>
+          <tr><th>Способ</th><th>Время</th><th>Цена / 3 чел.</th></tr>
+          <tr><td>Ночной поезд</td><td>5.5 ч</td><td>~3 000–6 000 ₽</td></tr>
+          <tr><td>Автобус/маршрутка</td><td>5–6 ч</td><td>~1 500–3 000 ₽</td></tr>
+          <tr><td>Внутренний перелёт</td><td>40–50 мин</td><td>~6 000–12 000 ₽</td></tr>
+          <tr><td>На своей машине</td><td>~4 ч</td><td>Топливо + амортизация</td></tr>
+        </table>
+        <p class="mini mt-3">Тбилиси лучше ставить <b>в середину</b> поездки (дни 4–6), а не в финал — иначе возвращение к морю будет сложным по логистике.</p>
+        <div class="verdict mt-2">В Тбилиси обязательно: серные бани Абанотубани, метекский холм, Руставели, ужин в вином погребе.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 10: 10-DAY ROUTE PLAN -->
+<div class="slide" data-slide="10">
+  <div class="gradient-mesh">
+    <div class="blob" style="width:320px;height:320px;top:-60px;right:-50px;background:#3fc8e4;opacity:.07"></div>
+    <div class="blob" style="width:240px;height:240px;bottom:-40px;left:-30px;background:#ffd15c;opacity:.07"></div>
+  </div>
+  <div class="content">
+    <h2 class="font-display text-4xl mb-4 reveal">📅 10 дней: оптимальный план</h2>
+    <div class="g2">
+      <div class="glass p-5 reveal">
+        <h3 style="color:#3fc8e4;margin-bottom:10px">🟦 МОРЕ (начало и конец)</h3>
+        <div class="route-wrap">
+          <div class="route-item"><div class="rdot" style="background:#3fc8e4"></div><div><b>День 1.</b> Прилёт в Батуми. Заселение. Первая вечерняя прогулка по бульвару.</div></div>
+          <div class="route-item"><div class="rdot" style="background:#3fc8e4"></div><div><b>День 2.</b> Полный день пляж + бульвар. Вечером — Ali & Nino, ужин у моря.</div></div>
+          <div class="route-item"><div class="rdot" style="background:#ffd15c"></div><div><b>День 3.</b> Утро — море. День — ботанический сад (9 км). Вечер — пляж.</div></div>
+          <div class="route-item"><div class="rdot" style="background:#ffd15c"></div><div><b>День 4.</b> Выезд Гонио + Квариати пляж. Возврат к ужину в город.</div></div>
+          <div class="route-item"><div class="rdot" style="background:#ffd15c"></div><div><b>День 5.</b> Горная Аджария: водопад Махунцети, Хуло, каньон.</div></div>
+        </div>
+      </div>
+      <div class="glass p-5 reveal">
+        <h3 style="color:#ffd15c;margin-bottom:10px">🟨 ТБИЛИСИ + финиш у моря</h3>
+        <div class="route-wrap">
+          <div class="route-item"><div class="rdot" style="background:#a78bfa"></div><div><b>День 6.</b> Переезд в Тбилиси (поезд/авто). Старый город, серные бани.</div></div>
+          <div class="route-item"><div class="rdot" style="background:#a78bfa"></div><div><b>День 7.</b> Нарикала, Руставели, рынок, ужин с вином. Возврат в Батуми.</div></div>
+          <div class="route-item"><div class="rdot" style="background:#34d399"></div><div><b>День 8.</b> Море, отдых, купание — никаких выездов.</div></div>
+          <div class="route-item"><div class="rdot" style="background:#34d399"></div><div><b>День 9.</b> Канатная дорога Argo + Старый Батуми + прощальный ужин.</div></div>
+          <div class="route-item"><div class="rdot" style="background:#3fc8e4"></div><div><b>День 10.</b> Утром пляж. Вылет / выезд домой.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 11: RESTAURANTS & FOOD -->
+<div class="slide" data-slide="11">
+  <div class="gradient-mesh">
+    <div class="blob" style="width:340px;height:340px;top:-70px;left:-60px;background:#ffd15c;opacity:.08"></div>
+    <div class="blob" style="width:250px;height:250px;bottom:-50px;right:-40px;background:#34d399;opacity:.07"></div>
+  </div>
+  <div class="content">
+    <h2 class="font-display text-4xl mb-4 reveal">🍽 Культовые блюда и рестораны</h2>
+    <div class="g2">
+      <div class="reveal">
+        <div class="img-card mb-3"><img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/417308af93bb142694f6dafafa0f60e02985805a.jpg" alt="Хачапури Аджарский"><div class="cap"><b>Аджарское хачапури.</b> Обязательно попробовать первым вечером. Цена: 12–18 GEL (~350–530 ₽).</div></div>
+        <div class="img-card"><img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/f5db39561b366b43c5acd88763f43585712305b3.jpg" alt="Ресторан Грузия"><div class="cap">Атмосферные интерьеры грузинских ресторанов — часть опыта. Бронируйте в пятницу и субботу.</div></div>
+      </div>
+      <div class="glass p-6 reveal">
+        <h3 style="font-size:1.15rem;color:#ffd15c;margin-bottom:12px">Что попробовать и где</h3>
+        <table>
+          <tr><th>Блюдо</th><th>Место</th><th>Цена</th></tr>
+          <tr><td>Хачапури по-аджарски</td><td>Acharuli Khachapuri Center, ул. 26 Мая 39</td><td>12–18 GEL</td></tr>
+          <tr><td>Хинкали</td><td>Khinkali House Kalakuri, ул. Пушкина 108</td><td>1.5–3 GEL / шт</td></tr>
+          <tr><td>Хинкали (видео-тест)</td><td>Rustaveli, Tavaduri, Pirosmani, Beridze Wine Cellar</td><td>2–4 GEL / шт</td></tr>
+          <tr><td>Мороженое</td><td>Luca Polare, ул. Абашидзе 3</td><td>4–8 GEL</td></tr>
+          <tr><td>Кофе</td><td>Leuville Cafe, ул. Горгиладзе 1</td><td>8–10 GEL</td></tr>
+        </table>
+        <p class="mini mt-3">Ужин на 3-х в хорошем ресторане: 80–130 GEL (~2 370–3 860 ₽). Семейный обед в простом месте: 40–60 GEL (~1 190–1 780 ₽).</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 12: FOOD BUDGET -->
+<div class="slide" data-slide="12">
+  <div class="gradient-mesh">
+    <div class="blob" style="width:320px;height:320px;top:-60px;right:-50px;background:#34d399;opacity:.07"></div>
+    <div class="blob" style="width:240px;height:240px;bottom:-40px;left:-30px;background:#3fc8e4;opacity:.07"></div>
+  </div>
+  <div class="content">
+    <h2 class="font-display text-4xl mb-4 reveal">💰 Бюджет питания: точные цифры</h2>
+    <div class="g2">
+      <div class="glass p-6 reveal">
+        <h3 style="color:#3fc8e4;margin-bottom:12px">Сколько уходит на еду</h3>
+        <table>
+          <tr><th>Сценарий</th><th>GEL/день (3 чел.)</th><th>RUB/день</th></tr>
+          <tr><td>Бюджетный (уличная еда)</td><td>60–90 GEL</td><td>1 780–2 670 ₽</td></tr>
+          <tr><td>Комфортный (рестораны)</td><td>120–180 GEL</td><td>3 560–5 340 ₽</td></tr>
+          <tr><td>С вином и эмоциями</td><td>200–250 GEL</td><td>5 930–7 420 ₽</td></tr>
+        </table>
+        <div class="verdict mt-3">Для Димы, Няди и Тимура разумный ориентир: <b>150 GEL / день (~4 450 ₽)</b>. За 10 дней это ~44 500 ₽ на питание в Грузии.</div>
+      </div>
+      <div class="glass p-6 reveal">
+        <h3 style="color:#ffd15c;margin-bottom:12px">Цены продуктов и кафе</h3>
+        <table>
+          <tr><th>Позиция</th><th>Цена GEL</th><th>Цена ₽</th></tr>
+          <tr><td>Кофе</td><td>8–10 GEL</td><td>~237–297 ₽</td></tr>
+          <tr><td>Бокал вина</td><td>5–15 GEL</td><td>~148–445 ₽</td></tr>
+          <tr><td>Хачапури</td><td>12–18 GEL</td><td>~356–534 ₽</td></tr>
+          <tr><td>Хинкали (10 шт.)</td><td>15–30 GEL</td><td>~445–890 ₽</td></tr>
+          <tr><td>Ужин на 3 (ресторан)</td><td>80–130 GEL</td><td>~2 370–3 860 ₽</td></tr>
+        </table>
+        <p class="mini mt-3">Mid-range путешественник тратит 50–100 USD/день включая жильё. Budget уровень — $30–50. (georgia-spirit.com, июль 2026)</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 13: HOTELS -->
+<div class="slide" data-slide="13">
+  <div class="gradient-mesh">
+    <div class="blob" style="width:340px;height:340px;top:-70px;right:-60px;background:#3fc8e4;opacity:.08"></div>
+    <div class="blob" style="width:250px;height:250px;bottom:-50px;left:-40px;background:#ffd15c;opacity:.07"></div>
+  </div>
+  <div class="content">
+    <h2 class="font-display text-4xl mb-4 reveal">🏨 Жильё: 3★, 4★ и апартаменты</h2>
+    <div class="g3">
+      <div class="glass p-5 reveal">
+        <h3 style="color:#3fc8e4;font-size:1.2rem;margin-bottom:10px">4★ Hotel</h3>
+        <div class="big">$51</div><p style="color:#7ea8cc;font-size:.8rem">средняя цена/ночь</p>
+        <p style="margin-top:10px;font-size:.88rem">Hotel Monarch, Radisson Blu, Hotel Intourist Palace. Как правило 10–15 мин. пешком до Batumi Beach. В июле цены выше среднегодового ориентира.</p>
+        <p class="mini mt-2">Ссылки: <a href="https://www.booking.com/fourstars/city/ge/batumi-ge.html" style="color:#3fc8e4">booking.com/4★</a></p>
+      </div>
+      <div class="glass p-5 reveal">
+        <h3 style="color:#ffd15c;font-size:1.2rem;margin-bottom:10px">3★ Hotel</h3>
+        <div class="big" style="color:#ffd15c">$41</div><p style="color:#7ea8cc;font-size:.8rem">средняя цена/ночь</p>
+        <p style="margin-top:10px;font-size:.88rem">Hotel Elite, Rock Hotel First Line, Hotel Old Town. 8–13 мин. пешком до пляжа. Rock Hotel First Line — прямо у берега. Хороший выбор для семьи с подростком.</p>
+        <p class="mini mt-2">Ссылки: <a href="https://www.booking.com/threestars/city/ge/batumi-ge.html" style="color:#ffd15c">booking.com/3★</a></p>
+      </div>
+      <div class="glass p-5 reveal">
+        <h3 style="color:#34d399;font-size:1.2rem;margin-bottom:10px">Апартаменты</h3>
+        <div class="big" style="color:#34d399">150 GEL</div><p style="color:#7ea8cc;font-size:.8rem">~4 450 ₽/ночь, ориентир</p>
+        <p style="margin-top:10px;font-size:.88rem">Blue Sky Apart-hotel, Le Port Apart Hotel, Marvella Apartments Orbi City — 268 м до моря. Кухня, стиральная машина, семейный формат. Лучший выбор для 10 дней с ребёнком.</p>
+        <p class="mini mt-2">Ссылки: <a href="https://www.cozycozy.com/ie/batumi-apartments" style="color:#34d399">cozycozy</a> / <a href="https://travelandia.ru/batumi/otdyh-v-iyule/" style="color:#34d399">travelandia</a></p>
+      </div>
+    </div>
+    <div class="glass p-4 mt-4 reveal">
+      <table>
+        <tr><th>Формат</th><th>Среднее в июле</th><th>9 ночей (₽)</th><th>Расстояние до пляжа</th></tr>
+        <tr><td>4★ Hotel</td><td>$51 (~4 080 ₽)</td><td>≈ 36 720 ₽</td><td>10–15 мин. пешком</td></tr>
+        <tr><td>3★ Hotel</td><td>$41 (~3 280 ₽)</td><td>≈ 29 520 ₽</td><td>8–13 мин. пешком</td></tr>
+        <tr><td>Апартаменты</td><td>150 GEL (~4 450 ₽)</td><td>≈ 40 050 ₽</td><td>250–500 м (есть варианты первой линии)</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 14: CAR RENTAL -->
+<div class="slide" data-slide="14">
+  <div class="gradient-mesh">
+    <div class="blob" style="width:340px;height:340px;top:-70px;left:-60px;background:#ffd15c;opacity:.08"></div>
+    <div class="blob" style="width:260px;height:260px;bottom:-50px;right:-40px;background:#3fc8e4;opacity:.07"></div>
+  </div>
+  <div class="content">
+    <h2 class="font-display text-4xl mb-4 reveal">🚙 Аренда авто в Батуми: точные цены</h2>
+    <div class="g2">
+      <div class="glass p-6 reveal">
+        <h3 style="color:#3fc8e4;margin-bottom:12px">Прайс лист (июль — пик сезона)</h3>
+        <table>
+          <tr><th>Класс</th><th>Пример</th><th>Пиковый сезон</th></tr>
+          <tr><td>Эконом</td><td>Toyota Yaris</td><td>$30–40/день</td></tr>
+          <tr><td>Компакт</td><td>Toyota Corolla</td><td>$35–47/день</td></tr>
+          <tr><td>SUV (важен для гор)</td><td>Hyundai Tucson</td><td>$50–65/день</td></tr>
+          <tr><td>Полноразмерный SUV</td><td>Toyota RAV4</td><td>$70–90/день</td></tr>
+        </table>
+        <p class="mini mt-3">Данные rentcarsgeorgia.com, batumi-car-rental.com, июль 2026. В августе цены выше на 10–15%.</p>
+        <div class="verdict mt-3">Для горных маршрутов (Годердзи, Хуло) нужен <b>SUV или 4×4</b>. Для ботсада и Гонио хватит эконома.</div>
+      </div>
+      <div class="glass p-6 reveal">
+        <h3 style="color:#ffd15c;margin-bottom:12px">Компании в Батуми</h3>
+        <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:8px;font-size:.9rem">
+          <li>🔵 <b>Europcar / Avis</b> — международные, дороже, круглосуточный аэропорт, нужна кредитная карта</li>
+          <li>🟢 <b>Cars4Rent.ge</b> — 400+ авто, нулевой депозит при полной предоплате</li>
+          <li>🟢 <b>Car24.ge</b> — полное КАСКО, нет обязательной кредитки, $100–200 наличный депозит</li>
+          <li>🟢 <b>WeRent.ge</b> — нулевой депозит, круглосуточная поддержка</li>
+          <li>🟡 <b>EasyCar.ge</b> — офис у центра, депозит $100–200 наличными</li>
+        </ul>
+        <p class="mini mt-3">3 дня в варианте 1 на компактном SUV: ~$150–195 / ≈12 000–15 600 ₽. Для выездов в горы нужен полный бак и сборы при возврате.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 15: VARIANT 1 FULL BUDGET -->
+<div class="slide" data-slide="15">
+  <div class="gradient-mesh">
+    <div class="blob" style="width:340px;height:340px;top:-70px;right:-60px;background:#3fc8e4;opacity:.08"></div>
+    <div class="blob" style="width:260px;height:260px;bottom:-50px;left:-40px;background:#ffd15c;opacity:.07"></div>
+  </div>
+  <canvas class="particle-canvas-ambient" style="position:absolute;inset:0;z-index:1"></canvas>
+  <div class="content">
+    <h2 class="font-display text-4xl mb-4 reveal">✈ Вариант 1: полный бюджет</h2>
+    <div class="glass p-5 reveal">
+      <table>
+        <tr><th>Статья расходов</th><th>Детали</th><th>Ориентир ₽</th></tr>
+        <tr><td><b>Авиабилеты</b></td><td>3 чел. туда-обратно; Azimuth от €146/чел. в одну сторону</td><td>70 000–122 000 ₽</td></tr>
+        <tr><td><b>Такси в аэропорт</b></td><td>2 поездки MOW × 2 чел. аналогов</td><td>3 000–6 000 ₽</td></tr>
+        <tr><td><b>Жильё 9 ночей</b></td><td>3★ ($41/н) → 29 500 ₽; 4★ ($51/н) → 36 700 ₽; апарт (150 GEL/н) → 40 000 ₽</td><td>29 500–40 000 ₽</td></tr>
+        <tr><td><b>Аренда авто 3 дня</b></td><td>SUV июль: $50–65/день</td><td>12 000–15 600 ₽</td></div></td></tr>
+        <tr><td><b>Топливо (аренда)</b></td><td>~300 км выездов × ~0.10 USD/км топлива</td><td>2 400 ₽</td></tr>
+        <tr><td><b>Питание 10 дней</b></td><td>150 GEL/день → 1 500 GEL total</td><td>44 500 ₽</td></tr>
+        <tr><td><b>Тбилиси (опция)</b></td><td>Поезд + 1 ночь + питание</td><td>+10 000–18 000 ₽</td></tr>
+        <tr><td><b>Активности</b></td><td>Ботсад, Гонио, канатка, серные бани и пр.</td><td>5 000–9 000 ₽</td></tr>
+        <tr><td><b>SIM-карта</b></td><td>3 шт. по 15–20 GEL</td><td>1 500 ₽</td></tr>
+      </table>
+      <div class="g2 mt-4" style="gap:12px">
+        <div class="glass p-4" style="background:rgba(63,200,228,.12)"><p class="mini">БЕЗ Тбилиси</p><div style="font-size:1.7rem;font-weight:800;color:#3fc8e4">167 900–239 000 ₽</div></div>
+        <div class="glass p-4" style="background:rgba(255,209,92,.1)"><p class="mini">С ТБИЛИСИ</p><div style="font-size:1.7rem;font-weight:800;color:#ffd15c">177 900–257 000 ₽</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 16: VARIANT 2 FULL BUDGET -->
+<div class="slide" data-slide="16">
+  <div class="gradient-mesh">
+    <div class="blob" style="width:340px;height:340px;top:-70px;left:-60px;background:#ffd15c;opacity:.08"></div>
+    <div class="blob" style="width:260px;height:260px;bottom:-50px;right:-40px;background:#3fc8e4;opacity:.07"></div>
+  </div>
+  <div class="content">
+    <h2 class="font-display text-4xl mb-4 reveal">🚗 Вариант 2: Honda Pilot — полный бюджет</h2>
+    <div class="reveal">
+      <div class="img-card mb-4" style="max-width:360px"><img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/e9f3972f931c4297ceadbd23c4b57d319e980309.jpg" alt="Honda Pilot"><div class="cap">Honda Pilot — комфортный SUV для дальней дороги. Расход 12 л/100 км в ваших расчётах.</div></div>
+    </div>
+    <div class="glass p-5 reveal">
+      <table>
+        <tr><th>Статья</th><th>Расчёт</th><th>Итог ₽</th></tr>
+        <tr><td><b>Топливо</b></td><td>4 000 км × 12 л/100 км = 480 л × 85 ₽</td><td><b>40 800 ₽</b></td></tr>
+        <tr><td><b>Амортизация</b></td><td>4 000 км × 20 ₽/км</td><td><b>80 000 ₽</b></td></tr>
+        <tr><td><b>Транзитные ночёвки</b></td><td>~4 ночи туда-обратно × ~3 500 ₽</td><td>14 000 ₽</td></tr>
+        <tr><td><b>Питание в дороге</b></td><td>~4 дня × 2 500 ₽/день</td><td>10 000 ₽</td></tr>
+        <tr><td><b>Жильё 6 ночей у моря</b></td><td>3★ ($41/н) → 19 680 ₽; апарт (150 GEL) → 26 700 ₽</td><td>19 680–26 700 ₽</td></tr>
+        <tr><td><b>Питание в Грузии</b></td><td>150 GEL/день × 7 дней</td><td>31 500 ₽</td></tr>
+        <tr><td><b>Активности</b></td><td>Те же объекты</td><td>5 000–9 000 ₽</td></tr>
+      </table>
+      <div class="g2 mt-4" style="gap:12px">
+        <div class="glass p-4" style="background:rgba(255,209,92,.12)"><p class="mini">ТОЛЬКО АВТО-ЧАСТЬ</p><div style="font-size:1.7rem;font-weight:800;color:#ffd15c">120 800 ₽</div></div>
+        <div class="glass p-4" style="background:rgba(63,200,228,.1)"><p class="mini">ПОЛНЫЙ БЮДЖЕТ</p><div style="font-size:1.7rem;font-weight:800;color:#3fc8e4">200 980–271 000 ₽</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 17: FINAL COMPARISON -->
+<div class="slide" data-slide="17">
+  <div class="gradient-mesh">
+    <div class="blob" style="width:340px;height:340px;top:-70px;right:-60px;background:#3fc8e4;opacity:.09"></div>
+    <div class="blob" style="width:260px;height:260px;bottom:-50px;left:-40px;background:#34d399;opacity:.08"></div>
+  </div>
+  <div class="content">
+    <h2 class="font-display text-4xl mb-4 reveal">📊 Сравнение: что выбрать</h2>
+    <div class="glass p-5 reveal">
+      <table>
+        <tr><th>Параметр</th><th>✈ Вариант 1</th><th>🚗 Вариант 2</th></tr>
+        <tr><td>Транспорт</td><td>70 000–122 000 ₽ (билеты+аренда)</td><td>120 800 ₽ (авто)</td></tr>
+        <tr><td>Полный бюджет</td><td><b style="color:#3fc8e4">168 000–257 000 ₽</b></td><td><b style="color:#ffd15c">201 000–271 000 ₽</b></td></tr>
+        <tr><td>Чистые дни отдыха</td><td><b>8 дней</b> в Грузии</td><td><b>6 дней</b> в Грузии</td></tr>
+        <tr><td>Дней в дороге</td><td>~2 дня</td><td>~4 дня за рулём</td></tr>
+        <tr><td>Усталость</td><td>Меньше — дорога короткая</td><td>Выше — 2 000 км за рулём</td></tr>
+        <tr><td>Свобода</td><td>Высокая (3 дня аренды)</td><td>Максимальная</td></tr>
+        <tr><td>Тимур в дороге</td><td>3.5 ч полёт</td><td>~20–22 ч езды туда</td></tr>
+        <tr><td>Страховки/документы</td><td>Стандарт</td><td>Нужен ВУ+техпаспорт для въезда в Грузию</td></tr>
+      </table>
+    </div>
+    <div class="g2 mt-4" style="gap:12px">
+      <div class="glass p-4 reveal" style="border-left:3px solid #3fc8e4"><p style="font-size:.9rem"><b>Если приоритет — максимум моря и минимум усталости:</b> Вариант 1 логичнее. Бюджет при 3★ может быть ниже, чем у своей машины, и остаётся 8 полноценных дней.</p></div>
+      <div class="glass p-4 reveal" style="border-left:3px solid #ffd15c"><p style="font-size:.9rem"><b>Если дорога — часть удовольствия, а деньги не главный критерий:</b> Вариант 2 даёт максимум самостоятельности. Но 4 из 10 дней будут дорожными.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 18: BLOGGER TIPS -->
+<div class="slide" data-slide="18">
+  <div class="gradient-mesh">
+    <div class="blob" style="width:340px;height:340px;top:-70px;left:-60px;background:#a78bfa;opacity:.08"></div>
+    <div class="blob" style="width:260px;height:260px;bottom:-50px;right:-40px;background:#3fc8e4;opacity:.07"></div>
+  </div>
+  <div class="content">
+    <h2 class="font-display text-4xl mb-4 reveal">💡 Советы тревел-блогеров</h2>
+    <div class="g3">
+      <div class="glass p-5 reveal">
+        <p style="font-size:.85rem;color:#ffd15c;font-weight:700;margin-bottom:8px">georgia-spirit.com, 2026</p>
+        <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:7px;font-size:.87rem">
+          <li>🧭 Лучшее время для Батуми с детьми — <b>конец июня или начало сентября</b>: меньше толп, хорошая погода.</li>
+          <li>💳 Снимайте лари в банкоматах TBC или Bank of Georgia — без скрытых комиссий.</li>
+          <li>🚌 Маршрутки дешевле такси в 5–10 раз. Bolt работает в Батуми и Тбилиси.</li>
+        </ul>
+      </div>
+      <div class="glass p-5 reveal">
+        <p style="font-size:.85rem;color:#3fc8e4;font-weight:700;margin-bottom:8px">tripwis.com, 2026</p>
+        <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:7px;font-size:.87rem">
+          <li>🥾 Ботанический сад — семейный маршрут 1.5 км, подходит для старших и пожилых. <b>Тимуру зайдёт.</b></li>
+          <li>⏰ Ранний приход на ботсад (до 10 утра) — меньше туристов и жары.</li>
+          <li>🌊 Пляж Гонио тише и чище, чем центральный городской пляж Батуми.</li>
+        </ul>
+      </div>
+      <div class="glass p-5 reveal">
+        <p style="font-size:.85rem;color:#34d399;font-weight:700;margin-bottom:8px">wander-lush.org, 2026</p>
+        <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:7px;font-size:.87rem">
+          <li>🗻 Горы Аджарии — не про треккинг, а про деревни и культуру. На машине 1 день достаточно.</li>
+          <li>🛂 Российским гражданам виза в Грузию <b>не нужна</b>. Въезд по загранпаспорту.</li>
+          <li>🍷 Грузинское вино — одно из лучших в регионе. Бутылка в магазине от 15 GEL.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="glass p-4 mt-4 reveal"><div class="g4" style="gap:10px;font-size:.83rem">
+      <div>🔋 <b>Связь:</b> SIM Silknet или Magti, от 15 GEL. eSIM через Airalo или Holafly.</div>
+      <div>🅿️ <b>Парковка:</b> в центре Батуми платная. Апарт-отели часто дают бесплатную.</div>
+      <div>💊 <b>Аптека:</b> GPC — сеть с русскоязычными фармацевтами в крупных городах.</div>
+      <div>📱 <b>Bolt/Yandex:</b> работают в Батуми и Тбилиси. Такси дешевле, чем в Москве.</div>
+    </div></div>
+  </div>
+</div>
+
+<!-- SLIDE 19: FINAL VERDICT -->
+<div class="slide" data-slide="19">
+  <div class="gradient-mesh">
+    <div class="blob" style="width:500px;height:500px;top:-120px;right:-80px;background:#3fc8e4;opacity:.16"></div>
+    <div class="blob" style="width:340px;height:340px;bottom:-90px;left:-60px;background:#ffd15c;opacity:.13"></div>
+    <div class="blob" style="width:220px;height:220px;top:45%;left:18%;background:#34d399;opacity:.09"></div>
+  </div>
+  <canvas class="particle-canvas" style="position:absolute;inset:0;z-index:1"></canvas>
+  <div class="content text-center">
+    <div style="font-size:80px;margin-bottom:12px;animation:float 3s ease-in-out infinite">🎯</div>
+    <h2 class="font-display reveal" style="font-size:clamp(1.8rem,4vw,3.8rem);background:linear-gradient(135deg,#3fc8e4,#ffd15c);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:20px">Что выбрать: резюме для решения</h2>
+    <div class="g2 text-left" style="max-width:960px;margin:0 auto">
+      <div class="glass p-6 reveal" style="border-top:3px solid #3fc8e4">
+        <p style="color:#3fc8e4;font-size:.85rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:10px">✈ Выбирайте самолёт, если</p>
+        <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:8px;font-size:.9rem">
+          <li>✅ Хотите максимум моря (8 из 10 дней)</li>
+          <li>✅ Бюджет важен — выходит дешевле (~168–257 K ₽)</li>
+          <li>✅ Тимур не хочет 20+ часов в машине</li>
+          <li>✅ Готовы 3 дня кататься на арендованном авто</li>
+        </ul>
+      </div>
+      <div class="glass p-6 reveal" style="border-top:3px solid #ffd15c">
+        <p style="color:#ffd15c;font-size:.85rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:10px">🚗 Выбирайте свою машину, если</p>
+        <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:8px;font-size:.9rem">
+          <li>✅ Дорога — удовольствие, а не потеря времени</li>
+          <li>✅ Хотите останавливаться где угодно по пути</li>
+          <li>✅ Берёте много вещей и не хотите багаж в самолёт</li>
+          <li>⚠️ Учтите: 4 дня за рулём из 10 — это реальная нагрузка</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- end deck -->
+
+<div class="nav-controls">
+  <button class="nav-btn" onclick="changeSlide(-1)">&#8249;</button>
+  <div class="slide-dots" id="dots"></div>
+  <button class="nav-btn" onclick="changeSlide(1)">&#8250;</button>
+  <span class="slide-counter" id="counter">1 / 19</span>
+</div>
+
+<script>
+let cur=1; const total=document.querySelectorAll('.slide').length;
+const dotsEl=document.getElementById('dots'); const ctrEl=document.getElementById('counter');
+for(let i=1;i<=total;i++){const d=document.createElement('div'); d.className='dot'+(i===1?' active':''); d.onclick=()=>go(i); dotsEl.appendChild(d)}
+function go(n){const p=document.querySelector('.slide.active'); const nx=document.querySelector(`.slide[data-slide="${n}"]`); if(p) p.classList.remove('active'); if(nx){nx.classList.add('active'); anim(nx)} cur=n; upd()}
+function changeSlide(d){let n=cur+d; if(n<1)n=total; if(n>total)n=1; go(n)}
+function upd(){document.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i+1===cur)); ctrEl.textContent=cur+' / '+total}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' '){e.preventDefault(); changeSlide(1)} if(e.key==='ArrowLeft'){e.preventDefault(); changeSlide(-1)}})
+let tx=0; document.addEventListener('touchstart',e=>{tx=e.touches[0].clientX}); document.addEventListener('touchend',e=>{const d=tx-e.changedTouches[0].clientX; if(Math.abs(d)>50) changeSlide(d>0?1:-1)})
+function anim(sl){sl.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transition='none'; el.style.opacity='0'; el.style.transform='translateY(18px)'; el.offsetHeight; const delay=i*.07; el.style.transition=`opacity .32s ease ${delay}s, transform .32s ease ${delay}s`; el.style.opacity='1'; el.style.transform='translateY(0)'})}
+window.initParticles=function(c,opts){if(!c)return; const ctx=c.getContext('2d'); c.width=c.offsetWidth; c.height=c.offsetHeight; const inter=opts.interactive!==false; const cnt=opts.count||(inter?55:18); let mx=-1e4,my=-1e4; const pts=Array.from({length:cnt},()=>({x:Math.random()*c.width,y:Math.random()*c.height,vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3,s:Math.random()*2.2+.7,a:Math.random()*.3+.1})); if(inter){c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect(); mx=e.clientX-r.left; my=e.clientY-r.top}); c.addEventListener('mouseleave',()=>{mx=-1e4; my=-1e4})} (function loop(){ctx.clearRect(0,0,c.width,c.height); pts.forEach(p=>{if(inter){const dx=p.x-mx, dy=p.y-my, dist=Math.sqrt(dx*dx+dy*dy); if(dist<100){const f=(100-dist)/100*2; p.vx+=(dx/dist)*f*.1; p.vy+=(dy/dist)*f*.1}} p.vx*=.98; p.vy*=.98; p.x+=p.vx; p.y+=p.vy; if(p.x<0)p.x=c.width; if(p.x>c.width)p.x=0; if(p.y<0)p.y=c.height; if(p.y>c.height)p.y=0; ctx.beginPath(); ctx.arc(p.x,p.y,p.s,0,Math.PI*2); ctx.fillStyle=`rgba(63,200,228,${p.a})`; ctx.fill()}); requestAnimationFrame(loop)})()};
+document.querySelectorAll('.particle-canvas').forEach(c=>window.initParticles(c,{interactive:true,count:55}));
+document.querySelectorAll('.particle-canvas-ambient').forEach(c=>window.initParticles(c,{interactive:false,count:18}));
+try{anim(document.querySelector('.slide.active'))}catch(e){}
+</script>
+</body>
+</html>
