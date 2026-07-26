@@ -38,6 +38,25 @@ Settings → Pages → **Source: GitHub Actions**. Больше ничего в�
 
 Текущая конфигурация публикует из **корня** (`path: "."`).
 
+## Генерация HTML из JSON
+
+Если данные в JSON — сгенерируйте и опубликуйте одной командой:
+
+```bash
+./publish-json.sh data.json georgia     # JSON -> HTML -> /georgia/
+cat data.json | ./publish-json.sh - q2   # JSON из stdin
+```
+
+Только сгенерировать HTML без публикации:
+
+```bash
+python gen-report.py data.json -o report.html
+```
+
+Формат JSON (все поля кроме `title` необязательны): `title`, `subtitle`,
+`badge`, `overview`, `metrics[]` (`name`/`value`/`change`), `table`
+(`heading`/`columns`/`rows`), `sections[]` (`heading`/`text`/`items`), `footer`.
+
 ## Обновление отчёта
 
 Отредактируйте `index.html`, закоммитьте и запушьте — workflow задеплоит автоматически:
