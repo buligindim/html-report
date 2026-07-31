@@ -188,9 +188,10 @@
       <div style="height:14px"></div>
       <div class="card">
         <h3 style="margin-bottom:12px">Архивы КТ и МРТ (DICOM)</h3>
-        <p style="color:var(--ink-2)">Полные наборы исследований в исходном врачебном формате доступны для скачивания архивами.</p>
+        <p style="color:var(--ink-2)">Полные наборы исследований в исходном врачебном формате (DICOM) доступны для скачивания архивами. Из-за большого объёма файлов архивы размещены во внешнем облачном хранилище; ссылки открываются без регистрации.</p>
         <div id="archives" class="doc-grid"></div>
-        <div class="empty" id="archives-empty">Архивы будут размещены в папке <code>assets/files/ct-mri-archives/</code>. После загрузки они автоматически появятся в этом блоке и в разделе «Скачать оригиналы».</div>
+        <div class="callout" style="margin-top:14px"><strong>Как открыть:</strong> в каждом архиве лежат DICOM-файлы, файл <code>DICOMDIR</code> и встроенный просмотрщик <code>CDVIEWER.EXE</code> для Windows. На macOS и Linux подойдёт любой DICOM-вьюер — Horos, Weasis, RadiAnt, MicroDicom.</div>
+        <div class="empty" id="archives-empty">Ссылки на архивы КТ/МРТ будут добавлены в <code>assets/data/archives.json</code>. После этого они автоматически появятся в этом блоке и в разделе «Скачать оригиналы».</div>
       </div>
     </section>
 

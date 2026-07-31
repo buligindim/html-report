@@ -125,15 +125,22 @@
   });
 
   /* archives */
+  const aUrl = (a) => a.url || a.file || '';
+  const aExternal = (a) => /^https?:\/\//i.test(aUrl(a));
+  const aIcon = (a) => (aExternal(a) ? (a.host === 'Яндекс.Диск' ? 'ЯД' : 'URL') : ext(aUrl(a)));
+
   if (archives.length) {
     $('#archives-empty').style.display = 'none';
     $('#archives').innerHTML = archives.map((a) => `<article class="doc"><div class="doc-top">
-      <div class="doc-icon">${esc(ext(a.file))}</div>
+      <div class="doc-icon">${esc(aIcon(a))}</div>
       <div class="doc-body">
         <div class="doc-title">${esc(a.title)}</div>
-        <div class="doc-meta"><span><b>${esc(a.date || '')}</b></span><span>${esc(a.side || '')}</span><span>${esc(a.size || '')}</span></div>
+        <div class="doc-meta"><span><b>${esc(a.date || '')}</b></span><span>${esc(a.side || '')}</span><span>${esc(a.size || '')}</span>${a.host ? `<span>${esc(a.host)}</span>` : ''}</div>
         <p class="doc-desc">${esc(a.description || '')}</p>
-        <div class="doc-actions"><a class="btn primary" href="${esc(a.file)}" download>Скачать архив</a></div>
+        ${(a.tags || []).length ? `<div class="doc-tags">${a.tags.map((t) => `<span class="tag">${esc(t)}</span>`).join('')}</div>` : ''}
+        <div class="doc-actions">${aExternal(a)
+          ? `<a class="btn primary" href="${esc(aUrl(a))}" target="_blank" rel="noopener">Скачать с ${esc(a.host || 'внешнего хранилища')}</a>`
+          : `<a class="btn primary" href="${esc(aUrl(a))}" download>Скачать архив</a>`}</div>
       </div></div></article>`).join('');
   }
 
@@ -144,13 +151,15 @@
 
   /* downloads */
   const all = [...docs.map((d) => ({ title: d.title, date: d.date, file: d.file, meta: `${d.type} · ${d.side || ''}` })),
-               ...archives.map((a) => ({ title: a.title, date: a.date || '', file: a.file, meta: 'Архив исследования' }))];
+               ...archives.map((a) => ({ title: a.title, date: a.date || '', file: aUrl(a), meta: `Архив исследования${a.size ? ' · ' + a.size : ''}${a.host ? ' · ' + a.host : ''}`, external: aExternal(a), host: a.host, icon: aIcon(a) }))];
   $('#download-list').innerHTML = all.map((d) => `<article class="doc"><div class="doc-top">
-    <div class="doc-icon">${esc(ext(d.file))}</div>
+    <div class="doc-icon">${esc(d.icon || ext(d.file))}</div>
     <div class="doc-body">
       <div class="doc-title">${esc(d.title)}</div>
       <div class="doc-meta"><span><b>${esc(d.date)}</b></span><span>${esc(d.meta)}</span></div>
-      <div class="doc-actions"><a class="btn primary" href="${esc(d.file)}" download>Скачать</a><a class="btn" href="${esc(d.file)}" target="_blank" rel="noopener">Открыть</a></div>
+      <div class="doc-actions">${d.external
+        ? `<a class="btn primary" href="${esc(d.file)}" target="_blank" rel="noopener">Скачать с ${esc(d.host || 'внешнего хранилища')}</a>`
+        : `<a class="btn primary" href="${esc(d.file)}" download>Скачать</a><a class="btn" href="${esc(d.file)}" target="_blank" rel="noopener">Открыть</a>`}</div>
     </div></div></article>`).join('');
 
   /* scrollspy */
