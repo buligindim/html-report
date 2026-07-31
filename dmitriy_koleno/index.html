@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Булыгин Дмитрий Дмитриевич — история болезни, коленные суставы</title>
+<meta name="description" content="Структурированная история болезни: анамнез, хронология, операция на левом коленном суставе, состояние правого коленного сустава, оригиналы медицинских документов и вопросы к консультирующим врачам.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark">БД</div>
+      <div>
+        <div class="brand-title">История болезни</div>
+        <div class="brand-sub">Коленные суставы · для врачей</div>
+      </div>
+    </div>
+
+    <div class="side-card">
+      <div class="k">Пациент</div>
+      <div class="v" id="side-name">—</div>
+      <div class="m" id="side-case">—</div>
+    </div>
+
+    <nav class="nav" id="nav">
+      <div class="nav-label">Обзор</div>
+      <a href="#overview"><span class="dot"></span>Паспорт случая</a>
+      <a href="#doctor-summary"><span class="dot"></span>Суть случая за 1 минуту</a>
+      <a href="#timeline"><span class="dot"></span>Хронология лечения</a>
+      <div class="nav-label">Суставы</div>
+      <a href="#left-knee"><span class="dot"></span>Левое колено (операция)</a>
+      <a href="#right-knee"><span class="dot"></span>Правое колено (план)</a>
+      <a href="#hands"><span class="dot"></span>Суставы рук и другие</a>
+      <div class="nav-label">Данные</div>
+      <a href="#imaging"><span class="dot"></span>КТ / МРТ / рентген</a>
+      <a href="#reports"><span class="dot"></span>Выписки и заключения</a>
+      <a href="#analysis"><span class="dot"></span>Анализы</a>
+      <a href="#treatment"><span class="dot"></span>Лечение и препараты</a>
+      <a href="#rehab"><span class="dot"></span>Реабилитация</a>
+      <div class="nav-label">Врачам</div>
+      <a href="#questions"><span class="dot"></span>Вопросы к врачам</a>
+      <a href="#downloads"><span class="dot"></span>Скачать оригиналы</a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <!-- HERO -->
+    <section class="hero" id="overview">
+      <span class="eyebrow">Паспорт случая</span>
+      <h1 id="patient-name">—</h1>
+      <p class="lede">Структурированная сводка для быстрого врачебного ознакомления: анамнез с 2020 года, острая травма и реконструктивная операция на левом коленном суставе, текущее состояние правого коленного сустава и оригиналы всех медицинских документов в один клик.</p>
+      <div class="hero-meta" id="hero-meta"></div>
+      <div class="kpi-grid" id="kpi-grid"></div>
+    </section>
+
+    <!-- SUMMARY -->
+    <section class="section" id="doctor-summary">
+      <div class="section-head">
+        <span class="eyebrow">Краткое резюме</span>
+        <h2>Суть случая за 1 минуту</h2>
+        <p>Ключевые факты в хронологическом порядке — достаточно для первичного понимания случая перед просмотром оригиналов.</p>
+      </div>
+      <div class="card"><ol class="summary-list" id="one-minute"></ol></div>
+      <div style="height:14px"></div>
+      <div class="card">
+        <h3 style="margin-bottom:12px">Диагноз при выписке</h3>
+        <p id="main-diagnosis" style="color:var(--ink-2)">—</p>
+        <p style="color:var(--ink-2); margin-bottom:0">Рассекающий остеохондрит латеральной фасетки и гребня надколенника ICRS IV ст. Импрессионный перелом медиального края надколенника со свободными хрящевыми фрагментами в полости сустава. Импрессионный перелом латерального мыщелка бедренной кости. Разрыв МПФЛ у надколенника и у бедренной кости. Разрыв медиального ретинакулюма. Растяжение медиальной коллатеральной связки и широких мышц бедра. Patella alta. Латерализация бугристости большеберцовой кости. Гиперпрессия латеральной фасетки надколенника. Гемартроз левого коленного сустава.</p>
+      </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section class="section" id="timeline">
+      <div class="section-head">
+        <span class="eyebrow">Хронология</span>
+        <h2>Хронология лечения по датам</h2>
+        <p>От первых жалоб в 2020 году до послеоперационного контроля и планирования дальнейшей тактики.</p>
+      </div>
+      <div class="timeline" id="timeline-list"></div>
+    </section>
+
+    <!-- LEFT KNEE -->
+    <section class="section" id="left-knee">
+      <div class="section-head">
+        <span class="eyebrow">Оперированный сустав</span>
+        <h2>Левое колено: травма, операция, результат</h2>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <h3 style="margin-bottom:12px">До операции</h3>
+          <ul class="bullets">
+            <li>18.01.2025 — острый вывих надколенника при падении на льду.</li>
+            <li>Рассекающий остеохондрит латеральной фасетки и гребня надколенника ICRS IV ст. (болезнь Кёнига), кратерообразный дефект 11,0 × 10,5 мм глубиной до 6,0 мм.</li>
+            <li>Свободный хрящевой фрагмент 11,0 × 9,0 × 5,0 мм в полости сустава.</li>
+            <li>Импрессионные переломы латерального мыщелка бедренной кости и нижне-медиального края надколенника.</li>
+            <li>Полный разрыв медиального ретинакулюма, частичное повреждение МПФЛ, гемартроз, посттравматический синовит.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 style="margin-bottom:12px">Операция 24.01.2025 <span class="tag alert">A16.04.015</span></h3>
+          <ul class="bullets">
+            <li>Артроскопия левого коленного сустава.</li>
+            <li>Удаление свободных и фиксированных костно-хрящевых фрагментов надколенника, артротомия.</li>
+            <li>Иссечение патологического участка, микрофрактурирование.</li>
+            <li>Хондропластика зоны асептического некроза надколенника материалом <b>JointRep</b>.</li>
+            <li>Пластика МПФЛ аутосухожилием m. semitendinosus.</li>
+            <li>Медиализация и дистализация бугристости большеберцовой кости, фиксация двумя винтами.</li>
+            <li>Парциальный латеральный релиз, пателлопластика.</li>
+            <li>Осложнений нет.</li>
+          </ul>
+        </div>
+      </div>
+      <div style="height:14px"></div>
+      <div class="card">
+        <h3 style="margin-bottom:12px">Послеоперационный контроль</h3>
+        <div class="grid-2">
+          <div>
+            <p style="font-size:13px; color:var(--muted); margin-bottom:6px"><b>31.01.2025 — рентген</b></p>
+            <p style="color:var(--ink-2)">Стояние костного фрагмента и металлических фиксаторов удовлетворительное, визуализируются костные каналы биодеградируемых анкеров.</p>
+          </div>
+          <div>
+            <p style="font-size:13px; color:var(--muted); margin-bottom:6px"><b>01.02.2025 — контрольное МРТ</b></p>
+            <p style="color:var(--ink-2)">Трансплантат МПФЛ прослеживается удовлетворительно. Insall-Salvati 1,7 (ранее 1,4), TT-PCL 20 мм (ранее 24 мм). Сохраняются отёк мягких тканей и умеренный выпот.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RIGHT KNEE -->
+    <section class="section" id="right-knee">
+      <div class="section-head">
+        <span class="eyebrow">План</span>
+        <h2>Правое колено: что известно и что решается</h2>
+        <p>Ключевой вопрос к консультирующим специалистам — тактика по второму суставу.</p>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <h3 style="margin-bottom:12px">Данные МРТ от 21.01.2025</h3>
+          <ul class="bullets">
+            <li>Хондромаляция медиальной фасетки надколенника с отёком костной ткани и субхондральными кистами — вероятно IV ст. по Outerbridge.</li>
+            <li>Отёк верхне-латеральных отделов жирового тела Гоффа — возможен импиджмент-синдром.</li>
+            <li>Patella alta: Insall-Salvati ≈ 1,5, Caton-Deschamps ≈ 1,35.</li>
+            <li>Латерализация бугристости большеберцовой кости: TT-PCL ≈ 23,0 мм, по КТ TT-TG 24,0 мм.</li>
+            <li>Дисплазия блока бедренной кости — тип А по Dejour, угол блока 154°.</li>
+            <li>Мениски, крестообразные и коллатеральные связки не изменены. Костно-травматических изменений по КТ нет.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 style="margin-bottom:12px">Что требует решения</h3>
+          <ul class="bullets">
+            <li>Показана ли операция на правом колене или достаточно консервативной тактики.</li>
+            <li>Нужна ли коррекция patella alta и латерализации бугристости для профилактики вывиха.</li>
+            <li>Объём дополнительной диагностики перед решением.</li>
+            <li>Сроки: до или после завершения реабилитации левого колена.</li>
+          </ul>
+          <div style="height:12px"></div>
+          <div class="callout warn"><strong>Важно:</strong> симптоматика справа существует с 2020 года и предшествовала травме слева — это может указывать на общий диспластический фон, а не на изолированное посттравматическое повреждение.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HANDS -->
+    <section class="section" id="hands">
+      <div class="section-head">
+        <span class="eyebrow">Дополнительная оценка</span>
+        <h2>Суставы рук и другие суставы</h2>
+      </div>
+      <div class="card">
+        <p style="color:var(--ink-2)">В предоставленных документах инструментальных данных по суставам рук пока нет. Раздел подготовлен для добавления жалоб, заключений и результатов обследований по мере их появления.</p>
+        <div class="callout">Предполагаемый объём первичной оценки: осмотр ревматолога и кистевого хирурга, тест гипермобильности по Бейтону, при показаниях — УЗИ и рентген кистей, лабораторные маркёры воспаления и обмена (СРБ, РФ, АЦЦП, HLA-B27, витамин D, кальций-фосфорный обмен).</div>
+      </div>
+    </section>
+
+    <!-- IMAGING -->
+    <section class="section" id="imaging">
+      <div class="section-head">
+        <span class="eyebrow">Визуализация</span>
+        <h2>КТ, МРТ и рентген</h2>
+        <p>Заключения лучевой диагностики с предпросмотром оригинала прямо на странице.</p>
+      </div>
+      <div class="filters" id="imaging-filters"></div>
+      <div class="doc-grid" id="imaging-docs"></div>
+      <div style="height:14px"></div>
+      <div class="card">
+        <h3 style="margin-bottom:12px">Архивы КТ и МРТ (DICOM)</h3>
+        <p style="color:var(--ink-2)">Полные наборы исследований в исходном врачебном формате доступны для скачивания архивами.</p>
+        <div id="archives" class="doc-grid"></div>
+        <div class="empty" id="archives-empty">Архивы будут размещены в папке <code>assets/files/ct-mri-archives/</code>. После загрузки они автоматически появятся в этом блоке и в разделе «Скачать оригиналы».</div>
+      </div>
+    </section>
+
+    <!-- REPORTS -->
+    <section class="section" id="reports">
+      <div class="section-head">
+        <span class="eyebrow">Документы</span>
+        <h2>Выписки и заключения</h2>
+      </div>
+      <div class="doc-grid" id="report-docs"></div>
+    </section>
+
+    <!-- ANALYSIS -->
+    <section class="section" id="analysis">
+      <div class="section-head">
+        <span class="eyebrow">Лаборатория</span>
+        <h2>Анализы</h2>
+      </div>
+      <div class="doc-grid" id="analysis-docs"></div>
+      <div class="empty" id="analysis-empty">Лабораторные исследования пока не приложены. Файлы размещаются в <code>assets/files/analysis/</code> и добавляются в <code>assets/data/documents.json</code> с разделом <code>analysis</code>.</div>
+    </section>
+
+    <!-- TREATMENT -->
+    <section class="section" id="treatment">
+      <div class="section-head">
+        <span class="eyebrow">Лечение</span>
+        <h2>Лечение и препараты</h2>
+      </div>
+      <div class="card">
+        <ul class="bullets">
+          <li>Стационарное лечение 18.01.2025 — 03.02.2025, оперативное лечение 24.01.2025.</li>
+          <li>Обработка швов раствором бриллиантового зелёного 1 раз в день, не мочить.</li>
+          <li>Снятие швов — 07.02.2025.</li>
+          <li>После снятия швов — гель для рубцов 2 раза в день тонким слоем не менее 1 месяца.</li>
+          <li>При подъёме температуры, отёке или усилении болей — обращение к врачу.</li>
+        </ul>
+        <div style="height:12px"></div>
+        <div class="callout">Полный перечень назначений приведён в выписном эпикризе от 03.02.2025 — см. раздел «Выписки и заключения».</div>
+      </div>
+    </section>
+
+    <!-- REHAB -->
+    <section class="section" id="rehab">
+      <div class="section-head">
+        <span class="eyebrow">Восстановление</span>
+        <h2>Реабилитация</h2>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <h3 style="margin-bottom:12px">Режим</h3>
+          <ul class="bullets">
+            <li>Ортез не снимать и не мочить.</li>
+            <li>Ходьба на костылях без опоры на оперированную конечность.</li>
+            <li>Освобождение от физкультуры на 6 месяцев.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 style="margin-bottom:12px">Восстановительное лечение</h3>
+          <ul class="bullets">
+            <li>ЛФК, разработка объёма движений.</li>
+            <li>Укрепление мышц бедра с упором на медиальную группу и ягодичные мышцы.</li>
+            <li>Консультация врача физиотерапии по месту жительства.</li>
+            <li>Миостимуляция не менее 2 месяцев, № 10–15.</li>
+            <li>Подъём, отведение и приведение ног с эспандерами.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUESTIONS -->
+    <section class="section" id="questions">
+      <div class="section-head">
+        <span class="eyebrow">Консультация</span>
+        <h2>Вопросы к консультирующим врачам</h2>
+        <p>Что именно требуется от специалиста при знакомстве с этим случаем.</p>
+      </div>
+      <div class="card" id="questions-list"></div>
+    </section>
+
+    <!-- DOWNLOADS -->
+    <section class="section" id="downloads">
+      <div class="section-head">
+        <span class="eyebrow">Оригиналы</span>
+        <h2>Скачать оригиналы документов</h2>
+        <p>Все файлы в исходном виде, без сжатия и изменений.</p>
+      </div>
+      <div class="doc-grid" id="download-list"></div>
+      <div class="footer">
+        Материалы предоставлены законным представителем пациента для целей врачебной консультации. Данные приведены дословно по оригинальным медицинским документам; интерпретация остаётся за лечащим и консультирующими врачами.
+      </div>
+    </section>
+  </main>
+</div>
+<script src="./assets/js/app.js"></script>
+</body>
+</html>

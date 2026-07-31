@@ -9,6 +9,9 @@ on:
       - "**/*.html"
       - "index.html"
       - "assets/**"
+      - "**/assets/**"
+      - "**/*.json"
+      - "**/*.pdf"
       - ".github/workflows/deploy.yml"
   workflow_dispatch:
 
