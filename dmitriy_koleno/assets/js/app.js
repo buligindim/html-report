@@ -17,6 +17,47 @@
     return;
   }
   try { archives = await load('./assets/data/archives.json'); } catch (e) { archives = []; }
+  let studies = [];
+  try { studies = await load('./assets/data/imaging-studies.json'); } catch (e) { studies = []; }
+  const studyById = Object.fromEntries(studies.map((s) => [s.id, s]));
+  const DOC_STUDY = {
+    'kt-2025-01-20': 'ct-2025-01-20',
+    'mrt-left-2025-01-21': 'mr-b-2025-01-20',
+    'mrt-right-2025-01-21': 'mr-a-2025-01-20',
+    'rg-2025-01-31': 'xr-2025-01-31',
+    'mrt-post-2025-02-01': 'mr-post-2025-01-31'
+  };
+  const TL_STUDY = {
+    '18.01.2025': 'xr-2025-01-18',
+    '20.01.2025': 'ct-2025-01-20',
+    '31.01.2025': 'xr-2025-01-31',
+    '01.02.2025': 'mr-post-2025-01-31'
+  };
+
+  function mountViewer(slot, studyId) {
+    const st = studyById[studyId];
+    if (!st || !window.MedViewer) return;
+    if (slot.dataset.mounted) return;
+    slot.dataset.mounted = '1';
+    window.MedViewer.create(slot, st);
+  }
+
+  function viewerToggle(btn) {
+    const slot = document.querySelector(`[data-viewer-slot="${btn.dataset.viewer}"]`);
+    if (!slot) return;
+    if (slot.classList.contains('open')) {
+      slot.classList.remove('open'); slot.style.display = 'none'; btn.textContent = btn.dataset.labelOpen;
+    } else {
+      slot.style.display = ''; slot.classList.add('open');
+      mountViewer(slot, btn.dataset.study);
+      btn.textContent = 'Скрыть снимки';
+      slot.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  }
+  document.addEventListener('click', (e) => {
+    const b = e.target.closest('[data-viewer]'); if (!b) return;
+    viewerToggle(b);
+  });
 
   const byId = Object.fromEntries(docs.map((d) => [d.id, d]));
 
@@ -39,18 +80,23 @@
 
   /* ---------- timeline ---------- */
   const catTag = { 'Травма': 'alert', 'Операция': 'alert', 'Диагностика': 'brand', 'Контроль': 'ok', 'Выписка': 'ok', 'План': 'warn', 'Анамнез': '' };
-  $('#timeline-list').innerHTML = timeline.map((t) => {
+  $('#timeline-list').innerHTML = timeline.map((t, i) => {
     const links = (t.docs || []).filter((id) => byId[id]).map((id) =>
       `<a href="#doc-${id}">${esc(byId[id].type)} · ${esc(byId[id].date)}</a>`).join('');
+    const studyId = TL_STUDY[t.date] || (t.docs || []).map((id) => DOC_STUDY[id]).find(Boolean);
+    const vid = 'tl-' + i;
+    const hasView = !!studyById[studyId];
     return `<div class="tl-item" data-cat="${esc(t.category)}">
       <div class="card">
         <div class="tl-head">
           <span class="tl-date">${esc(t.date)}</span>
           <span class="tag ${catTag[t.category] || ''}">${esc(t.category)}</span>
           <strong style="font-size:15px">${esc(t.title)}</strong>
+          ${hasView ? `<button class="tl-eye" data-viewer="${vid}" data-study="${esc(studyId)}" data-label-open="Смотреть снимки" title="Открыть снимки в вьюере" aria-label="Открыть снимки"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2 12s3.8-6.5 10-6.5S22 12 22 12s-3.8 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="2.6"/></svg></button>` : ''}
         </div>
         <p>${esc(t.text)}</p>
         ${links ? `<div class="tl-links">${links}</div>` : ''}
+        ${hasView ? `<div class="viewer-slot" data-viewer-slot="${vid}" style="display:none"></div>` : ''}
       </div>
     </div>`;
   }).join('');
@@ -62,6 +108,8 @@
 
   function docCard(d) {
     const previewable = isPdf(d.file) || isImg(d.file);
+    const studyId = DOC_STUDY[d.id];
+    const st = studyById[studyId];
     return `<article class="doc" id="doc-${esc(d.id)}">
       <div class="doc-top">
         <div class="doc-icon">${esc(ext(d.file))}</div>
@@ -76,10 +124,12 @@
           <p class="doc-desc">${esc(d.description)}</p>
           <div class="doc-tags">${(d.tags || []).map((t) => `<span class="tag">${esc(t)}</span>`).join('')}</div>
           <div class="doc-actions">
-            ${previewable ? `<button class="btn" data-preview="${esc(d.id)}">Показать документ</button>` : ''}
-            <a class="btn primary" href="${esc(d.file)}" download>Скачать оригинал</a>
+            ${st ? `<button class="btn primary" data-viewer="doc-v-${esc(d.id)}" data-study="${esc(studyId)}" data-label-open="Смотреть снимки (${st.frames})">Смотреть снимки (${st.frames})</button>` : ''}
+            ${previewable ? `<button class="btn" data-preview="${esc(d.id)}">${isPdf(d.file) ? 'Показать заключение' : 'Показать документ'}</button>` : ''}
+            <a class="btn" href="${esc(d.file)}" download>${isPdf(d.file) ? 'Скачать PDF' : 'Скачать оригинал'}</a>
             <a class="btn" href="${esc(d.file)}" target="_blank" rel="noopener">Открыть в новой вкладке</a>
           </div>
+          ${st ? `<div class="viewer-slot" data-viewer-slot="doc-v-${esc(d.id)}" style="display:none"></div>` : ''}
         </div>
       </div>
       <div class="doc-preview" data-preview-box="${esc(d.id)}"></div>
