@@ -309,15 +309,20 @@
     </section>
 
     <!-- DOWNLOADS -->
-    <section class="section" id="downloads">
-      <div class="section-head">
-        <span class="eyebrow">Оригиналы</span>
-        <h2>Скачать оригиналы документов</h2>
-        <p>Все файлы в исходном виде, без сжатия и изменений.</p>
-      </div>
+    <section class="section collapsible" id="downloads">
+      <button class="section-head fold-head" type="button" id="downloads-toggle" aria-expanded="false" aria-controls="downloads-body">
+        <span class="fold-text">
+          <span class="eyebrow">Оригиналы</span>
+          <h2>Скачать оригиналы документов</h2>
+          <p>Все файлы в исходном виде, без сжатия и изменений. Нажмите, чтобы развернуть список.</p>
+        </span>
+        <span class="fold-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+      </button>
+      <div class="fold-body" id="downloads-body" hidden>
       <div class="doc-grid" id="download-list"></div>
       <div class="footer">
         Материалы предоставлены законным представителем пациента для целей врачебной консультации. Данные приведены дословно по оригинальным медицинским документам; интерпретация остаётся за лечащим и консультирующими врачами.
+      </div>
       </div>
     </section>
   </main>

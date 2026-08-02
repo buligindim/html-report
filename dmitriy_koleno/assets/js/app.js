@@ -25,13 +25,15 @@
     'mrt-left-2025-01-21': 'mr-b-2025-01-20',
     'mrt-right-2025-01-21': 'mr-a-2025-01-20',
     'rg-2025-01-31': 'xr-2025-01-31',
-    'mrt-post-2025-02-01': 'mr-post-2025-01-31'
+    'mrt-post-2025-02-01': 'mr-post-2025-01-31',
+    'mrt-2025-11-28': 'mr-2025-11-28'
   };
   const TL_STUDY = {
     '18.01.2025': 'xr-2025-01-18',
     '20.01.2025': 'ct-2025-01-20',
     '31.01.2025': 'xr-2025-01-31',
-    '01.02.2025': 'mr-post-2025-01-31'
+    '01.02.2025': 'mr-post-2025-01-31',
+    '28.11.2025': 'mr-2025-11-28'
   };
 
   function mountViewer(slot, studyId) {
@@ -228,4 +230,33 @@
     requestAnimationFrame(() => { syncSpy(); ticking = false; });
   }, { passive: true });
   syncSpy();
+  document.querySelectorAll('.side-nav a[href^="#"], .nav a[href^="#"]').forEach((a) => {
+    a.addEventListener('click', () => {
+      setTimeout(syncSpy, 400);
+      setTimeout(syncSpy, 900);
+    });
+  });
 })();
+
+  /* ---------- сворачиваемый раздел «Скачать оригиналы» ---------- */
+  (function foldDownloads() {
+    const btn = document.getElementById('downloads-toggle');
+    const body = document.getElementById('downloads-body');
+    if (!btn || !body) return;
+    function setOpen(open, scroll) {
+      body.hidden = !open;
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (open && scroll) {
+        requestAnimationFrame(() => btn.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+      }
+    }
+    btn.addEventListener('click', () => setOpen(body.hidden, false));
+    document.querySelectorAll('a[href="#downloads"]').forEach((a) => {
+      a.addEventListener('click', () => setOpen(true, true));
+    });
+    if (location.hash === '#downloads') setOpen(true, true);
+    window.addEventListener('hashchange', () => {
+      if (location.hash === '#downloads') setOpen(true, true);
+    });
+  })();
+

@@ -130,6 +130,7 @@
 
       let drag = null;
       stage.addEventListener('pointerdown', (e) => {
+        stage.focus({ preventScroll: true });
         stage.setPointerCapture(e.pointerId);
         drag = { x: e.clientX, y: e.clientY, f: this.frame, b: this.bright, c: this.contrast, z: this.zoom, px: this.panX, py: this.panY, alt: e.altKey || e.button === 2 || e.shiftKey };
       });
