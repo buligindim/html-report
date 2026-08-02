@@ -177,7 +177,7 @@
   /* archives */
   const aUrl = (a) => a.url || a.file || '';
   const aExternal = (a) => /^https?:\/\//i.test(aUrl(a));
-  const aIcon = (a) => (aExternal(a) ? (a.host === 'Яндекс.Диск' ? 'ЯД' : 'URL') : ext(aUrl(a)));
+  const aIcon = (a) => (aExternal(a) ? (a.host === 'Яндекс.Диск' ? 'ЯД' : a.host === 'ЕМИАС' ? 'ЕМ' : 'URL') : ext(aUrl(a)));
 
   if (archives.length) {
     $('#archives-empty').style.display = 'none';
@@ -189,7 +189,7 @@
         <p class="doc-desc">${esc(a.description || '')}</p>
         ${(a.tags || []).length ? `<div class="doc-tags">${a.tags.map((t) => `<span class="tag">${esc(t)}</span>`).join('')}</div>` : ''}
         <div class="doc-actions">${aExternal(a)
-          ? `<a class="btn primary" href="${esc(aUrl(a))}" target="_blank" rel="noopener">Скачать с ${esc(a.host || 'внешнего хранилища')}</a>`
+          ? `<a class="btn primary" href="${esc(aUrl(a))}" target="_blank" rel="noopener">Скачать с ${esc(a.host === 'ЕМИАС' ? 'ЕМИАС' : a.host || 'внешнего хранилища')}</a>`
           : `<a class="btn primary" href="${esc(aUrl(a))}" download>Скачать архив</a>`}</div>
       </div></div></article>`).join('');
   }
